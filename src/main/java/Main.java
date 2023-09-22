@@ -7,8 +7,6 @@ public class Main {
 
         System.out.println("На сколько человек разделить ваш счет?");
 
-        System.out.println("Вы указали: " + countFriend(scanner));
-
 
     }
 
