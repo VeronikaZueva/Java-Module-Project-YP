@@ -4,15 +4,30 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        int countFriend = 0;
 
-        while (countFriend <= 1) {
-            System.out.println("На сколько человек разделить ваш счет?");
-            countFriend = scanner.nextInt();
-            if(countFriend == 1) {System.out.println("Нет смысла делить счет!");}
-            else {System.out.println("Введенное число некорректно.");}
-        }
-        System.out.println("Выполняем код дальше");
+        System.out.println("На сколько человек разделить ваш счет?");
+
+        System.out.println("Вы указали: " + countFriend(scanner));
+
 
     }
+
+    public static int countFriend(Scanner scanner) {
+
+        while (true) {
+            if(scanner.hasNextInt()) {
+                int number = scanner.nextInt();
+                if(number <= 1) {System.out.println("Укажите число больше 1.");}
+                else {return number;}
+
+            } else {
+                System.out.println("Необходимо указать целое число.");
+                scanner.next();
+            }
+
+        }
+    }
+
+
 }
+
