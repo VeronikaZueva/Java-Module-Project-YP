@@ -36,15 +36,20 @@ public class Main {
         String bill = String.format("%.2f", calculate);
         String sum = String.format("%.2f", total);
 
+        Ruble rubleSum = new Ruble();
+        Ruble rubleBill = new Ruble();
+        String changeRubleSum = rubleSum.recieveRuble(total);
+        String changeRubleBill = rubleBill.recieveRuble(calculate);
+
         String resultMenu = menu.toString();
         System.out.println("Добавленные блюда:");
         System.out.println(resultMenu);
         System.out.println("Стоимость заказа:");
-        System.out.println(sum);
+        System.out.println(sum + changeRubleSum);
         System.out.println("Количество гостей:");
         System.out.println(friends);
         System.out.println("Стоимость чека на каждого:");
-        System.out.println(bill);
+        System.out.println(bill + changeRubleBill);
 
     }
 
@@ -90,10 +95,6 @@ public class Main {
             command = 0;
         }
         return command;
-    }
-
-    public static String ruble() {
-
     }
 
 
