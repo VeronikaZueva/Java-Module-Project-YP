@@ -8,7 +8,7 @@ public class Main {
         StringBuilder menu = new StringBuilder();
 
         System.out.println("На сколько человек разделить ваш счет?");
-        countFriend(scanner);
+        int friends = countFriend(scanner);
         int processAdd;
         double total = 0;
         do {
@@ -31,23 +31,20 @@ public class Main {
             processAdd = enterCommand(scanner);
         } while(processAdd == 0);
 
-
+        //Выводим калькулятор
+        double calculate = total / (double)friends;
+        String bill = String.format("%.2f", calculate);
+        String sum = String.format("%.2f", total);
 
         String resultMenu = menu.toString();
         System.out.println("Добавленные блюда:");
         System.out.println(resultMenu);
         System.out.println("Стоимость заказа:");
-        System.out.println(total);
-
-
-
-
-        //System.out.println("Добавленные товары: ");
-        //System.out.println("Общая сумма: ");
-        //System.out.println("Количество человек: " + countFriend(scanner));
-        //System.out.println("Стоимость на каждого: ");
-
-
+        System.out.println(sum);
+        System.out.println("Количество гостей:");
+        System.out.println(friends);
+        System.out.println("Стоимость чека на каждого:");
+        System.out.println(bill);
 
     }
 
@@ -93,6 +90,10 @@ public class Main {
             command = 0;
         }
         return command;
+    }
+
+    public static String ruble() {
+
     }
 
 
