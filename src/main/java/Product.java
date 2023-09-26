@@ -1,14 +1,14 @@
 public class Product {
+    StringBuilder menu = new StringBuilder();
 
-
-
-
-     public String addInMenu(String dish, int command) {
-        StringBuilder menu = new StringBuilder();
-        while(true) {
-            if(command==0) {menu = menu.append(dish); }
-            else {return menu;}
+     public void addInMenu(String dish, int command) {
+        while(command == 1) {
+            menu.append(dish);
+            System.out.println("Блюдо добавлено в список");
         }
+            String resultMenu = menu.toString();
+            System.out.println(resultMenu);
+
 
     }
 
