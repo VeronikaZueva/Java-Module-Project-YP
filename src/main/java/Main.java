@@ -10,6 +10,7 @@ public class Main {
         System.out.println("На сколько человек разделить ваш счет?");
         countFriend(scanner);
         int processAdd;
+        double total = 0;
         do {
             System.out.println("Укажите название блюда:");
             String dish = scanner.next();
@@ -20,6 +21,7 @@ public class Main {
             menu.append(dish).append("\n");
 
             System.out.println("Укажите стоимость блюда:");
+                total = total + checkPrice(scanner);
 
 
             System.out.println("Блюдо добавлено в список");
@@ -29,9 +31,15 @@ public class Main {
             processAdd = enterCommand(scanner);
         } while(processAdd == 0);
 
+
+
         String resultMenu = menu.toString();
-        System.out.println("Ваш заказ:");
+        System.out.println("Добавленные блюда:");
         System.out.println(resultMenu);
+        System.out.println("Стоимость заказа:");
+        System.out.println(total);
+
+
 
 
         //System.out.println("Добавленные товары: ");
@@ -43,6 +51,7 @@ public class Main {
 
     }
 
+    //Обрабатываем вывод количества друзей
     public static int countFriend(Scanner scanner) {
         while (true) {
             if(scanner.hasNextInt()) {
@@ -58,6 +67,23 @@ public class Main {
         }
     }
 
+    //Обрабатываем вывод суммы
+    public static double checkPrice (Scanner scanner) {
+        while (true) {
+            if(scanner.hasNextDouble()) {
+                double price = scanner.nextDouble();
+                if(price <= 0) {System.out.println("Укажите число больше 0.");}
+                else {return price;}
+
+            } else {
+                System.out.println("Необходимо указать число.");
+                scanner.next();
+            }
+
+        }
+    }
+
+    //Решаем, завершать ли нам добавление блюд или продолжать
     public static int enterCommand(Scanner scanner) {
         String dishAdd = scanner.next();
         int command;
